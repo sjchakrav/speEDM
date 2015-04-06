@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root to: 'static_pages#index'
+  get 'auth/facebook/callback', to: 'sessions#create'
+  get 'signout', to: 'sessions#destroy'
+  match 'auth/failure', to: redirect('/'), via: :get
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
