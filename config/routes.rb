@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'static_pages#index'
+  get '/auth/spotify/callback', to: 'users#spotify'
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'signout', to: 'sessions#destroy'
   match 'auth/failure', to: redirect('/'), via: :get
