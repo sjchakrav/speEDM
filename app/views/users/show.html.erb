@@ -1,11 +1,17 @@
-<strong>Hi <%= @spotify_user.display_name %></strong>
+<strong>Hi <%= @user.name %></strong>
 
 <p>
   <strong>Artists following:</strong>
-  
+  <%= @user.artists %>
 </p>
 
+<p>
+  <strong>Search for artist to follow: </strong>
+  <%= form_tag "/search", :method => 'post' do %>
+    <p>
+      <%= text_field_tag "search[name]", params.has_key?("search") && params[:search].has_key?("name") ? params[:search][:name] : "" %>
+      <%= submit_tag " Search Artist Database" %>
+    </p>
+  <% end %>
+</p>
 <%= @artist_searched %>
-
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>

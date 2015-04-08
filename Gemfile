@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 gem 'figaro'
 gem 'rspotify'
 
-gem 'rspotify'
-gem 'omniauth-facebook', '~> 2.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
