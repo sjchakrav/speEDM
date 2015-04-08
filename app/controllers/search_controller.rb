@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
 
-  def search    
+  def search
     @artist_searched = RSpotify::Artist.search(params[:search][:name]).first 
     @artist = Artist.make_artist_from_spotify(@artist_searched)
     # save the artist or whatever to the database

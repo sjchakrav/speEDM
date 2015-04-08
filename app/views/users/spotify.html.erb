@@ -3,7 +3,7 @@ Thank you for logging into Spotify, <%= @spotify_user.display_name %>. Your asso
 <br>
 Search for an artist:
 
-<%= form_tag "/static_pages/index", :method => 'post' do %>
+<%= form_tag "/static_pages/spotify", :method => 'post' do %>
   <p>
     <%= text_field_tag "search[name]", params.has_key?("search") && params[:search].has_key?("name") ? params[:search][:name] : "" %>
     <%= submit_tag " Search Artist Database" %>
