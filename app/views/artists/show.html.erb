@@ -1,7 +1,2 @@
 <!-- Mockup page until params are completed -->
-<h1>@artist.name</h1>
-  <%= form_for(ArtistUser.new) do |f| %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.hidden_field :artist_id, :value => @artist.id %>
-      <%= f.submit "Follow" %>
-  <% end %>
+<h1><%= @artist.name %></h1>

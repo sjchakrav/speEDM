@@ -1,24 +1,10 @@
 class SearchController < ApplicationController
-
   def search
-    @artist = Artist.where("name = 'params[:search][:name]'")
+    @artist = Artist.find_by(:slug => params[:search][:name].downcase.gsub(/[^a-z1-9$]+/, '-').chomp('-'))
     unless @artist
       found = RSpotify::Artist.search(params[:search][:name]).first
-      @artist = self.create_artist_from_spotify(found.name, found.image_url, found.profile_url)
+      @artist = Artist.create_artist_from_spotify(found.name, found.images[0]["url"], found.external_urls["spotify"])
     end
     redirect_to artist_path(@artist)
-
-    # @artist = # find it
-    # unless @artist
-    #   @artist_searched = RSpotify::Artist.search(params[:search][:name]).first 
-    #    @artist = Artist.make_artist_from_spotify(@artist_searched)
-    # end
-    # redirect_to artist_path(@artist)
-
-    # save the artist or whatever to the database
-    # @artist = Artist.new
-    # @artist.name = @artist_searched# stuff here
-    # redirect to the artist 
   end
-
 end
