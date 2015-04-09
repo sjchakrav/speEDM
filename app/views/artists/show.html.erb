@@ -1,2 +1,12 @@
-<!-- Mockup page until params are completed -->
 <h1><%= @artist.name %></h1>
+<p>
+  <img src="<%= @artist.image_url %>"<br>
+  <%= link_to "Profile Page", @artist.profile_url  %><br>
+</p>
+
+<p>
+  Top Tracks:<br>
+  <% @spotify_info.top_tracks("US").each.with_index(1) do |track, i| %>
+    <%= image_tag(track.album.images.first["url"])%> <%= i %>. <%= track.name %> - <%= track.album.name %><br>
+  <% end %>
+</p>
