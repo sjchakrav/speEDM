@@ -1,0 +1,2 @@
+module ArtistUsersHelper
+end

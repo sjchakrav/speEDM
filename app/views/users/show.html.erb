@@ -2,7 +2,9 @@
 
 <p>
   <strong>Artists following:</strong>
-  <%= @user.artists %>
+  <% @user.artists.each do |artist| %>
+    <%= link_to artist.name, artist %>
+  <% end %>
 </p>
 
 <p>

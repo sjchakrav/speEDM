@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#index'
   resources :artists #, only: [:index, :new, :create, :show]
   resources :users
+  resources :artist_users
   post "/search", to: 'search#search'
 
   # Authentication

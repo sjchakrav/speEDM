@@ -2,6 +2,11 @@
 <p>
   <img src="<%= @artist.image_url %>"<br>
   <%= link_to "Profile Page", @artist.profile_url  %><br>
+  <%= form_for(ArtistUser.new) do |f| %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :artist_id, :value => @artist.id %>
+      <%= f.submit "Follow" %>
+  <% end %>
 </p>
 
 <p>
