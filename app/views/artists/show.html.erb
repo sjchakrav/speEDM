@@ -25,6 +25,6 @@
 <p>
   <h1>Top SoundCloud Tracks:</h1><br>
   <% @soundcloud_info.each.with_index(1) do |track, i| %>
-    <%= image_tag(track.artwork_url) %> <%= i %>. <%= track.title %> Plays: <%= track.playback_count %><br>
+    <%= image_tag(track.artwork_url, size: "50x50") %> <%= i %>. <%= track.title %> Plays: <%= track.playback_count %><br>
   <% end %>
 </p>
