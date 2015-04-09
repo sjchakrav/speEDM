@@ -1,17 +1,30 @@
 <h1><%= @artist.name %></h1>
 <p>
   <img src="<%= @artist.image_url %>"<br>
-  <%= link_to "Profile Page", @artist.profile_url  %><br>
-  <%= form_for(ArtistUser.new) do |f| %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.hidden_field :artist_id, :value => @artist.id %>
-      <%= f.submit "Follow" %>
+  <%= link_to "Spotify Page", @artist.profile_url  %><br>
+  <% if @found_artist_user %>
+    <%= form_for(@found_artist_user, :html => { :method => :delete }) do |f| %>
+        <%= f.submit "Unfollow" %>
+    <% end %>
+  <% else %>
+    <%= form_for(@artist_user) do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :artist_id, :value => @artist.id %>
+        <%= f.submit "Follow" %>
+    <% end %>
   <% end %>
 </p>
 
 <p>
-  Top Tracks:<br>
+  <h1>Top Spotify Tracks:</h1><br>
   <% @spotify_info.top_tracks("US").each.with_index(1) do |track, i| %>
     <%= image_tag(track.album.images.first["url"])%> <%= i %>. <%= track.name %> - <%= track.album.name %><br>
+  <% end %>
+</p>
+
+<p>
+  <h1>Top SoundCloud Tracks:</h1><br>
+  <% @soundcloud_info.each.with_index(1) do |track, i| %>
+    <%= image_tag(track.artwork_url) %> <%= i %>. <%= track.title %> Plays: <%= track.playback_count %><br>
   <% end %>
 </p>
