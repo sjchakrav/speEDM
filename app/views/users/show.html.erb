@@ -6,12 +6,21 @@
 </p>
 
 <p>
-  <strong>Search for artist to follow: </strong>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<body>
+  <strong>Search for Artists to Follow: </strong>
   <%= form_tag "/search", :method => 'post' do %>
     <p>
       <%= text_field_tag "search[name]", params.has_key?("search") && params[:search].has_key?("name") ? params[:search][:name] : "" %>
-      <%= submit_tag " Search Artist Database" %>
+      <%= submit_tag "Search Artist Database" %>
     </p>
   <% end %>
 </p>
+</body>
 <%= @artist_searched %>
