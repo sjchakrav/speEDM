@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408204146) do
+ActiveRecord::Schema.define(version: 20150409145047) do
 
   create_table "artist_genres", force: :cascade do |t|
     t.integer "artist_id"
@@ -41,12 +41,13 @@ ActiveRecord::Schema.define(version: 20150408204146) do
     t.string   "uid"
     t.string   "name"
     t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "email"
     t.string   "image_url"
     t.string   "profile_url"
+    t.string   "oauth_refresh_token"
+    t.integer  "oauth_expires_at"
   end
 
 end
