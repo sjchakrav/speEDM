@@ -22,7 +22,7 @@
 /* Some Style from the Bootstrap Default Theme */
 body {
   padding-top: 70px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -33,4 +33,26 @@ body {
 
 .theme-showcase > p > .btn {
   margin: 5px 0;
+}
+
+.navbar-brand {
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.field input {
+    color: #000000;
+    font-size: 14px;
+    padding: 20px;
+    border: 2px solid #000000;
+    background: #f5f5f5;
+}
+
+#content {
+    width:500px;
+    height:200px;
+    position:absolute;
+    left:60%;
+    top:80%;
+    margin:-100px 0 0 -150px;
 }
