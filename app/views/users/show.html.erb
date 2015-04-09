@@ -1,12 +1,12 @@
 <strong>Welcome, <%= @user.name %>.</strong>
-
 <p>
+<br>
   <strong>Artists being followed:</strong><br>
   <% @user.artists.each do |artist| %>
     <%= link_to artist.name, artist %>
   <% end %>
 </p>
-
+<br>
 <p>
   <strong>Recent tracks from all followed artists from Spotify:</strong><br>
   <% @user.artists.each do |artist| %>
@@ -15,7 +15,7 @@
     <% end %>
   <% end %>
 </p>
-
+<br>
 <p>
   <strong>Recent tracks from all followed artists from SoundCloud:</strong><br>
   <% @user.artists.each do |artist| %>
