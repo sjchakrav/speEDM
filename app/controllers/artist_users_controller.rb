@@ -1,7 +1,7 @@
 class ArtistUsersController < ApplicationController
   def create
-      ArtistUser.find_or_create_by(artist_user_params)
-      redirect_to user_path(current_user)
+    ArtistUser.find_or_create_by(artist_user_params)
+    redirect_to user_path(current_user)
   end
 
   def destroy
