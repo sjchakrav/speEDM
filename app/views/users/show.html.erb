@@ -1,19 +1,26 @@
 <strong>Hi <%= @user.name %></strong>
 
 <p>
-  <strong>Artists following:</strong>
+  <strong>Artists following:</strong><br>
   <% @user.artists.each do |artist| %>
     <%= link_to artist.name, artist %>
   <% end %>
 </p>
 
 <p>
-  <strong>Search for artist to follow: </strong>
-  <%= form_tag "/search", :method => 'post' do %>
-    <p>
-      <%= text_field_tag "search[name]", params.has_key?("search") && params[:search].has_key?("name") ? params[:search][:name] : "" %>
-      <%= submit_tag " Search Artist Database" %>
-    </p>
+  <strong>Top tracks from all artists from Spotify:</strong><br>
+  <% @user.artists.each do |artist| %>
+    <% RSpotify::Artist.search(artist.name).first.top_tracks("US").each.with_index(1) do |track, i| %>
+      <%= image_tag(track.album.images.first["url"], size: "50x50")%> <%= i %>. <%= track.name %> - <%= track.album.name %><br>
+    <% end %>
   <% end %>
 </p>
-<%= @artist_searched %>
+
+<p>
+  <strong>Top tracks from all artists from SoundCloud:</strong><br>
+  <% @user.artists.each do |artist| %>
+    <% @client.get('/tracks', :q => "#{artist.name}", :licence => 'cc-by-sa').each.with_index(1) do |track, i| %>
+      <%= image_tag(track.artwork_url, size: "50x50") %> <%= i %>. <%= track.title %> Plays: <%= track.playback_count %><br>
+    <% end %>
+  <% end %>
+</p>
