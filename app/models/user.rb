@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
     user.email = auth.info.email
     user.image_url = auth.info.images.first.url
     user.profile_url = auth.info.external_urls[:spotify]
+    user.oauth_token = auth["credentials"]["token"]
+    user.oauth_expires_at = auth["credentials"]["expires_at"]
+    user.oauth_refresh_token = auth["credentials"]["refresh_token"]
     user.save
     end
   end
