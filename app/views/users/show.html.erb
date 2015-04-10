@@ -8,10 +8,17 @@
 </p>
 
 <p>
-<strong>Top tracks from all artists from Spotify:</strong><br>
-<% @user.spotify_tracks.each do |number, track| %>
-  <%= image_tag(track["image_url"], size: "50x50")%> <%= number %>. <%= track["artist_name"] %> - <%= track["track_name"] %> - <%= track["album_name"] %><br>
-<% end %>
+  <strong>Recent tracks from all artists from Spotify:</strong><br>
+  <% @user.recent_spotify_tracks.each do |number, track| %>
+    <%= image_tag(track["image_url"], size: "50x50")%> <%= number %>. <%= track["artist_name"] %> - <%= track["track_name"] %> - <%= track["album_name"] %><br>
+  <% end %>
+</p>
+
+<p>
+  <strong>Top tracks from all artists from Spotify:</strong><br>
+  <% @user.spotify_tracks.each do |number, track| %>
+    <%= image_tag(track["image_url"], size: "50x50")%> <%= number %>. <%= track["artist_name"] %> - <%= track["track_name"] %> - <%= track["album_name"] %><br>
+  <% end %>
 </p>
 
 <p>

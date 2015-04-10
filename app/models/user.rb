@@ -13,10 +13,15 @@ class User < ActiveRecord::Base
         spotify_hash[i.to_s]["track_name"] = track.name
         spotify_hash[i.to_s]["album_name"] = track.album.name
         spotify_hash[i.to_s]["image_url"] = track.album.images.first["url"]
+        spotify_hash[i.to_s]["release_date"] = track.album.release_date
         i += 1
       end
     end
     spotify_hash
+  end
+
+  def recent_spotify_tracks
+    spotify_tracks.sort_by { |number, track| track["release_date"] }.reverse
   end
 
   def soundcloud_tracks
