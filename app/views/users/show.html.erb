@@ -1,7 +1,7 @@
-<strong>Hi <%= @user.name %></strong>
-
+<strong>Welcome, <%= @user.name %>.</strong>
 <p>
-  <strong>Artists following:</strong><br>
+<br>
+  <strong>Artists being followed:</strong><br>
   <% @user.artists.each do |artist| %>
     <%= link_to artist.name, artist %><br>
   <% end %>
