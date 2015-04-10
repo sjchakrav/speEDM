@@ -9,21 +9,20 @@
 
 <p>
   <strong>Recent tracks from all artists from Spotify:</strong><br>
-  <% @user.recent_spotify_tracks.each do |number, track| %>
-    <%= image_tag(track["image_url"], size: "50x50")%> <%= number %>. <%= track["artist_name"] %> - <%= track["track_name"] %> - <%= track["album_name"] %><br>
+  <% @spotify_tracks.each do |track| %>
+    <a href = "<%= track.url %>"><%= image_tag(track.image_url, size: "50x50") %> <%= track.artist.name %> - <%= track.name %> - Released: <%= track.release_date %></a><br>
   <% end %>
 </p>
 
-<p>
-  <strong>Top tracks from all artists from Spotify:</strong><br>
-  <% @user.spotify_tracks.each do |number, track| %>
-    <%= image_tag(track["image_url"], size: "50x50")%> <%= number %>. <%= track["artist_name"] %> - <%= track["track_name"] %> - <%= track["album_name"] %><br>
-  <% end %>
-</p>
+<%= page_entries_info @spotify_tracks %>
+<%= will_paginate @spotify_tracks, :param_name => 'spotify_page' %>
 
 <p>
   <strong>Top tracks from all artists from SoundCloud:</strong><br>
-  <% @user.soundcloud_tracks.each do |number, track| %>
-    <%= image_tag(track["image_url"], size: "50x50") %> <%= number %>, <%= track["track_name"] %><br>
+  <% @soundcloud_tracks.each do |track| %>
+    <a href = "<%= track.url %>"><%= image_tag(track.image_url, size: "50x50") %> <%= track.name %> - Released: <%= track.release_date %></a><br>
   <% end %>
 </p>
+
+<%= page_entries_info @soundcloud_tracks %>
+<%= will_paginate @soundcloud_tracks, :param_name => 'soundcloud_page' %>
