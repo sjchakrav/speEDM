@@ -16,15 +16,21 @@
 </p>
 
 <p>
+</p>
+
+<p>
   <h1>Top Spotify Tracks:</h1><br>
-  <% @spotify_info.top_tracks("US").each.with_index(1) do |track, i| %>
-    <%= image_tag(track.album.images.first["url"], size: "50x50")%> <%= i %>. <%= track.name %> - <%= track.album.name %><br>
+  <% @spotify_tracks.each do |track| %>
+    <a href = "<%= track.url %>"><%= image_tag(track.image_url, size: "50x50") %> <%= track.artist.name %> - <%= track.name %> - Released: <%= track.release_date %></a><br>
   <% end %>
 </p>
 
 <p>
   <h1>Top SoundCloud Tracks:</h1><br>
-  <% @soundcloud_info.each.with_index(1) do |track, i| %>
-    <%= image_tag(track.artwork_url, size: "50x50") %> <%= i %>. <%= track.title %> Plays: <%= track.playback_count %><br>
+  <% @soundcloud_tracks.each do |track| %>
+    <a href = "<%= track.url %>"><%= image_tag(track.image_url, size: "50x50") %> <%= track.name %> - Released: <%= track.release_date %></a><br>
   <% end %>
 </p>
+
+<%= page_entries_info @soundcloud_tracks %>
+<%= will_paginate @soundcloud_tracks, :param_name => 'soundcloud_page' %>

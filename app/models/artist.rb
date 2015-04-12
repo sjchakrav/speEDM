@@ -10,6 +10,14 @@ class Artist < ActiveRecord::Base
     Artist.create(:name => name, :image_url => image_url, :profile_url => profile_url)
   end
 
+  def spotify_tracks
+    tracks.where(:source => "spotify").order(release_date: :desc)
+  end
+
+  def soundcloud_tracks
+    tracks.where(:source => "soundcloud").order(release_date: :desc)
+  end
+
   # Updates only if soundcloud has later release date than local db
   # Refactor Track class instead of repeatedly calling same code
   def self.update_tracks
