@@ -1,16 +1,16 @@
 <h1><%= @artist.name %></h1>
 <p>
-  <img src="<%= @artist.image_url %>", width: "250", height = "250"><br><br>
+  <%= image_tag(@artist.image_url, size: "300x300") %><p>
   <%= link_to "Spotify Page", @artist.profile_url  %><br>
   <% if @found_artist_user %>
     <%= form_for(@found_artist_user, :html => { :method => :delete }) do |f| %>
-        <%= f.submit "Unfollow" %>
+        <%= f.submit "Unfollow", :class => 'btn' %>
     <% end %>
   <% else %>
     <%= form_for(@artist_user) do |f| %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :artist_id, :value => @artist.id %>
-        <%= f.submit "Follow" %>
+        <%= f.submit "Follow", :class => 'btn' %>
     <% end %>
   <% end %>
 </p>
