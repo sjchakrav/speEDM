@@ -1,0 +1,90 @@
+#main {
+  overflow: hidden;
+  width: 100%;
+}
+
+#tiles {
+  list-style-type: none;
+  position: relative; /** Needed to ensure items are laid out relative to this container **/
+  margin: 0 0 0 -20px;
+  padding: 0;
+}
+
+#tiles li {
+  display: none;
+  margin: 0;
+  z-index: 9;
+  cursor: pointer;
+   -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+	-moz-box-sizing: border-box;
+           box-sizing: border-box;	  
+}
+
+#tiles li img {
+  width: 100%;
+  height: auto;
+}
+#tiles li.inactive {
+  visibility: visible;
+  opacity: .2;
+  filter: alpha(opacity=20); /* IE 7 and Earlier */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+}
+
+#tiles li img {
+  display: block;
+}
+
+.progress-bar {
+  background-color: #0BC20B;
+  height: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 0;
+  box-shadow: 0 1px 3px rgba(11, 194, 11, 0.2);
+  -webkit-transition: width 0.3s ease-out;
+     -moz-transition: width 0.3s ease-out;
+       -o-transition: width 0.3s ease-out;
+          transition: width 0.3s ease-out;
+}
+
+.wookmark-placeholder {
+	z-index: 8;
+  -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+}
+
+/**
+ * Filters
+ */
+#filters{
+	margin-top: 20px;
+}
+#filters li {
+	float: left;
+	cursor: pointer;
+	margin: 0 10px 10px 0;
+	-webkit-transition: all 0.15s ease-out;
+     -moz-transition: all 0.15s ease-out;
+       -o-transition: all 0.15s ease-out;
+          transition: all 0.15s ease-out;
+	-webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+.active .btn{
+	background-color: #39AE77;
+}
+@media only screen and (max-width: 360px) {
+	#tiles{
+		margin-left: 0;
+	}
+}
