@@ -65,6 +65,7 @@ class User < ActiveRecord::Base
     user.uid = auth.info.id
     user.name = auth.info.display_name
     user.email = auth.info.email
+    binding.pry
     user.image_url = auth.info.images.first.url
     user.profile_url = auth.info.external_urls[:spotify]
     user.oauth_token = auth["credentials"]["token"]
