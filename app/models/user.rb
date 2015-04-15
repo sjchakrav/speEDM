@@ -60,12 +60,16 @@ class User < ActiveRecord::Base
   # end
 
   def self.from_omniauth(auth)
+    puts "#@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33"
+    puts ""
+    puts auth.inspect 
+    puts
+    puts "#@@@@#3@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#333"
     where(provider: auth.provider, uid: auth.info.id).first_or_create do |user|
     user.provider = auth.provider
     user.uid = auth.info.id
     user.name = auth.info.display_name
     user.email = auth.info.email
-    binding.pry
     user.image_url = auth.info.images.first.url
     user.profile_url = auth.info.external_urls[:spotify]
     user.oauth_token = auth["credentials"]["token"]
