@@ -4,7 +4,7 @@ gem 'figaro'
 gem 'rspotify'
 gem 'soundcloud'
 gem 'will_paginate'
-
+  gem 'pry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
@@ -53,7 +53,6 @@ group :test, :development do
   gem 'simplecov'
   gem 'database_cleaner'
   gem 'sqlite3'
-  gem 'pry'
   gem 'guard-rspec', require: false
   gem 'thin'
 end
