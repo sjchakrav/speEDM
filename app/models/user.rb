@@ -60,11 +60,6 @@ class User < ActiveRecord::Base
   # end
 
   def self.from_omniauth(auth)
-    puts "#@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33"
-    puts ""
-    puts auth.inspect 
-    puts
-    puts "#@@@@#3@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#33@@@@#333"
     where(provider: auth.provider, uid: auth.info.id).first_or_create do |user|
     user.provider = auth.provider
     user.uid = auth.info.id
