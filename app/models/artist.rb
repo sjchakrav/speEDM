@@ -22,7 +22,6 @@ class Artist < ActiveRecord::Base
   # Refactor Track class instead of repeatedly calling same code
   def self.update_tracks
     client = Soundcloud.new(:client_id => ENV['SOUNDCLOUD_ID'])
-
     Artist.all.each do |artist|
       soundcloud_tracks = client.get('/tracks', :q => "#{artist.name}", :licence => 'cc-by-sa')
       sc_latest_release_date = Date.parse(soundcloud_tracks.each_with_object([]) { |track, arr| arr << track.created_at }.sort.last)
