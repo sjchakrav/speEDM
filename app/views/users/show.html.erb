@@ -1,6 +1,11 @@
 <strong>Welcome, <%= @user.name %>.</strong>
 <p>
 <br>
+<font size = "3">
+ To start discovering new music, search for your favorite artists using the search bar at the top and then you'll be directed to the artist's profile. Click the "follow" button if you'd like to receive new updates about the artist and their tracks. All artists you're following will be displayed in the user dashboard as well as new tracks added on their relevant Spotify and Soundcloud profiles.</font>
+<br>
+<br>
+<br>
   <strong>Artists being followed:</strong><br>
   <% @user.artists.each do |artist| %>
     <%= link_to artist.name, artist %><br>
