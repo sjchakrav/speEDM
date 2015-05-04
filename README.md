@@ -2,17 +2,17 @@
 
 ## Description
 
-Search for your favorite artists and follow them to get all the newest tracks.
+Search for your favorite artists and follow them to get all the newest tracks with one simple user dashboard.
+The application uses Spotify and Soundcloud's respective APIs.
 
 ## Background
 
-One week project for the Flatiron School.
+Built at the Flatiron School.
 
 ## Author
 
+Sanjay Chakravorty
 Brian Choy
-
-Sanj Chakravorty
 
 ## License
 
