@@ -11,7 +11,8 @@
     <%= link_to artist.name, artist %><br>
   <% end %>
 </p>
-
+<br>
+<br>
 <p>
   <strong>Recent tracks from all artists from Spotify:</strong><br>
   <% @spotify_tracks.each do |track| %>
@@ -21,9 +22,11 @@
 
 <%= page_entries_info @spotify_tracks %>
 <%= will_paginate @spotify_tracks, :param_name => 'spotify_page' %>
+<br>
 
+<br>
 <p>
-  <strong>Top tracks from all artists from SoundCloud:</strong><br>
+  <strong>Recent tracks from all artists from SoundCloud:</strong><br>
   <% @soundcloud_tracks.each do |track| %>
     <a href = "<%= track.url %>"><%= image_tag(track.image_url, size: "50x50") %> <%= track.name %> - Released: <%= track.release_date %></a><br>
   <% end %>
