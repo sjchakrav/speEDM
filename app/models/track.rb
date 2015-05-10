@@ -1,5 +1,7 @@
 class Track < ActiveRecord::Base
   belongs_to :artist
+  has_many :playlist_tracks
+  has_many :playlists, through: :playlist_tracks 
 
   def self.create_tracks(artist)
     client = Soundcloud.new(:client_id => ENV['SOUNDCLOUD_ID'])
