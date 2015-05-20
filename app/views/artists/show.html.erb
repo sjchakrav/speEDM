@@ -19,7 +19,7 @@
 </p>
 
 <p>
-  <h1>Top Spotify Tracks:</h1><br>
+  <h1>Top Spotify Tracks :</h1><br>
   <% @spotify_tracks.each do |track| %>
     <a href = "<%= track.url %>"><%= image_tag(track.image_url, size: "50x50") %> <%= track.artist.name %> - <%= track.name %> - Released: <%= track.release_date %></a><br>
   <% end %>
